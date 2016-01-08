@@ -4,6 +4,7 @@ MAINTAINER Andrii Bilorus <andrii.bilorus@gmail.com>
 
 RUN apt-get update
 RUN apt-get install -y mysql-client fcgiwrap bc && mkdir -p /var/www/shsh  
+RUN apt-get clean
 
 EXPOSE 9000
 

@@ -5,6 +5,7 @@ MAINTAINER Andrii Bilorus <andrii.bilorus@gmail.com>
 RUN apt-get update
 RUN apt-get install -y nginx && \
     mkdir -p /var/www/shsh && chown www-data:www-data /var/www/shsh
+RUN apt-get clean
 
 COPY ./nginx.conf /etc/nginx/
 COPY ./fastcgi.conf /etc/nginx/
