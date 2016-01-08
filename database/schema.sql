@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS Questions(
+    id INT NOT NULL AUTO_INCREMENT,
+    quest TEXT NOT NULL,
+    CONSTRAINT pr_key PRIMARY KEY (id),
+    CONSTRAINT unq UNIQUE (quest(64))
+);
+
+CREATE TABLE IF NOT EXISTS Answers(
+    id INT NOT NULL AUTO_INCREMENT,
+    quest INT NOT NULL,
+    ans TEXT NOT NULL,
+    correct TINYINT(1) NOT NULL DEFAULT 0,
+    CONSTRAINT pr_key PRIMARY KEY (id),
+    CONSTRAINT fr_key FOREIGN KEY (quest) REFERENCES Questions (id)
+);

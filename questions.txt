@@ -1,0 +1,27 @@
+# File wich contains questions and answers for test
+# It is used for filling database
+#
+# Format: 
+# qu: - line with question
+# a0: - incorrect answer
+# a1: - correct answer
+# <blank line> - questions delimiter
+# # comment
+# 
+# Notice: use one blank line to delimiter questions
+#         use double quotes instead of single quotes
+#
+qu: Question 1
+a0: incorrect answer
+a1: correct answer
+a0: incorect answer
+
+qu: Second question
+a1: this one is correct
+a0: this one is incorrect
+a0: this ane is incorrect as well
+a0: this one is definitelly incorrect
+
+qu: Last question
+a0: answer 1
+a1: answer 2
