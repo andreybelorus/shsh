@@ -6,7 +6,7 @@ mariadb() {
     docker rm -f ${dbhost} || echo 
     docker run -d -it --name ${dbhost} -e MYSQL_ROOT_PASSWORD=${dbrootpass} -p 127.0.0.1:3306:3306 mariadb:latest
     echo Waiting for datadase start 
-    for ((i=0;i<20;i++)); do
+    for ((i=0;i<30;i++)); do
         sleep 1 && printf "."
     done
 }
