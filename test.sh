@@ -3,8 +3,8 @@
 . ./settings.sh
 
 [ -d /tmp/shsh ] || mkdir /tmp/shsh
-find /tmp/shsh -mmin +${session_lifetime:-5} -delete                #
-[ "$(ls /tmp/shsh | wc -w)" -gt "${max_sessionS:-50}" ] && exit 1   # AntiDDOS
+find /tmp/shsh -mmin +${session_lifetime:-5} -delete                
+[ "$(ls /tmp/shsh | wc -w)" -gt "${max_sessionS:-50}" ] && exit 1   
 
 sql="mysql -n -s -u $dbuser -p$dbpass -h $dbhost $dbname -e"
 
@@ -108,7 +108,7 @@ else
     printf "Set-Cookie: session=$session\n"
     printf "Content-type: text/html\n\n"
     cat view/header.html
-    printf "\t\t\t<h1>Find out your Unix shell skills.</h1> \n\
+    printf "\t\t\t<h1>Find out your shell scripting level</h1> \n\
             <br/><b>There will be ${question_count:-10} simple questions.</b>\n\
             <p><form action=/sh/test> \n\
             <input type=\"hidden\" name=\"start\" value=\"true\"> \n\
