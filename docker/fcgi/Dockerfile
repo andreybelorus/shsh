@@ -7,4 +7,4 @@ RUN apt-get install -y mysql-client fcgiwrap bc && mkdir -p /var/www/shsh
 
 EXPOSE 9000
 
-CMD [ "/usr/sbin/fcgiwrap", "-s", "tcp:0.0.0.0:9000", ">>", "/var/log/fcgiwrap.log" ]
+CMD [ "/usr/sbin/fcgiwrap", "-s", "tcp:0.0.0.0:9000" ]
