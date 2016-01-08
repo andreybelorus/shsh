@@ -13,3 +13,4 @@ Web application for testing Unix shell skills. Actualy it doesn't depends on que
 * Run `sudo ./install.sh`. This script creates three docker containers with: nginx, fcgiwrap, mariadb.
 
 ###Demo
+Web page is located here (http://bilor.us/sh/test)
