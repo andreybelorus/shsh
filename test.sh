@@ -52,11 +52,10 @@ elif [ -n "${cookies["session"]}" -a -f /tmp/shsh/"${cookies["session"]}".sessio
     i=0
     lines=$(cat $sessionfile | wc -l)
     for qid in $(cat $sessionfile); do
-        if [ "$(( ++i ))" -ge "$lines" ] && 
-           ([ "x$qid" = 'x+' ] || [ "x$qid" = 'x-' ]) ; then
+        if [ "$(( ++i ))" -ge "$lines" ] && [ "x$qid" = 'x+' -o "x$qid" = 'x-' ] ; then
             pluses=0
-            for RES in $(cat $sessionfile); do
-                [ "x$RES" = "x+" ] && (( pluses++ ))
+            for res in $(cat $sessionfile); do
+                [ "x$res" = "x+" ] && (( pluses++ ))
             done
             result=$(bc <<< "scale=2; $pluses / $lines * 100")
             [ ${#result} -gt 3 ] && result=${result::-3} || result=0
@@ -102,7 +101,7 @@ elif [ -n "${cookies["session"]}" -a -f /tmp/shsh/"${cookies["session"]}".sessio
             </form>"
     cat view/footer.html
 else 
-    #[ -n "x${cookies["session"]}" -a -f /tmp/shsh/"${cookies["session"]}".session ] && rm /tmp/shsh/"${cookies["session"]}".session 
+    [ -n "x${cookies["session"]}" -a -f /tmp/shsh/"${cookies["session"]}".session ] && rm /tmp/shsh/"${cookies["session"]}".session 
     session=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
     sessionfile=/tmp/shsh/${session}.session
     touch $sessionfile
